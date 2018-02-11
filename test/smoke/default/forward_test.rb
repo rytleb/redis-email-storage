@@ -5,14 +5,14 @@
 # The Inspec reference, with examples and extensive documentation, can be
 # found at http://inspec.io/docs/reference/resources/
 
-unless os.windows?
-  # This is an example test, replace with your own test.
-  describe user('root'), :skip do
-    it { should exist }
-  end
+describe user('catchall') do
+  it { should exist }
 end
 
-# This is an example test, replace it with your own test.
-describe port(80), :skip do
-  it { should_not be_listening }
+describe file('/home/catchall/.forward') do
+  its('md5sum') { should eq '51c41d46d08c14b4fb74b5a11d7c9a07' }
+end
+
+describe file('/home/catchall/store_to_redis.py') do
+  its('md5sum') { should eq '5c9a4117634afab802a62c086fade065' }
 end

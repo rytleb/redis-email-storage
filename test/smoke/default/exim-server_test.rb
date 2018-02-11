@@ -6,7 +6,7 @@
 # found at http://inspec.io/docs/reference/resources/
 
 
-describe service('Exim') do
+describe service('exim') do
   it { should be_installed }
   it { should be_enabled }
   it { should be_running }
